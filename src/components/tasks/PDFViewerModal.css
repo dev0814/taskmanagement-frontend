@@ -1,0 +1,150 @@
+.pdf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.pdf-modal-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 72rem;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-modal-container.fullscreen {
+  max-width: none;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+}
+
+.pdf-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pdf-modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.pdf-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pdf-modal-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #f3f4f6;
+}
+
+.pdf-modal-page-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pdf-modal-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pdf-modal-content {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.pdf-modal-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.pdf-modal-loading-spinner {
+  animation: spin 1s linear infinite;
+  border-radius: 9999px;
+  height: 3rem;
+  width: 3rem;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-color: #6366f1;
+}
+
+.pdf-modal-error {
+  text-align: center;
+  color: #ef4444;
+}
+
+.pdf-modal-iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Button styles */
+.pdf-modal-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.pdf-modal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pdf-modal-btn-secondary {
+  background-color: #4f46e5;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.pdf-modal-btn-secondary:hover:not(:disabled) {
+  background-color: #4338ca;
+}
+
+.pdf-modal-btn-ghost {
+  background-color: transparent;
+  color: #4b5563;
+}
+
+.pdf-modal-btn-ghost:hover:not(:disabled) {
+  background-color: #f3f4f6;
+}
+
+.pdf-modal-btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.pdf-modal-btn-icon {
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 
