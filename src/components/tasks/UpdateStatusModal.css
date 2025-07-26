@@ -1,0 +1,120 @@
+.update-status-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.update-status-modal-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 32rem;
+  padding: 1.5rem;
+}
+
+.update-status-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.update-status-modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.update-status-modal-close {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.update-status-modal-close:hover {
+  color: #374151;
+}
+
+.update-status-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.update-status-modal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.update-status-modal-label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.update-status-modal-select {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background-color: white;
+}
+
+.update-status-modal-textarea {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.update-status-modal-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.update-status-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.update-status-modal-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.update-status-modal-btn-cancel {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.update-status-modal-btn-cancel:hover {
+  background-color: #f3f4f6;
+}
+
+.update-status-modal-btn-submit {
+  background-color: #4f46e5;
+  border: none;
+  color: white;
+}
+
+.update-status-modal-btn-submit:hover {
+  background-color: #4338ca;
+}
+
+.update-status-modal-btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+} 
