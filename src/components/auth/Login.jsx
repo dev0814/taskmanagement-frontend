@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/auth/authSlice';
 import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './Login.css';
 
 const Login = () => {
@@ -12,6 +13,7 @@ const Login = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,10 +34,25 @@ const Login = () => {
     try {
       await dispatch(login(formData)).unwrap();
       toast.success('Login successful');
+      // Only clear form data and navigate on successful login
+      setFormData({ email: '', password: '' });
       navigate('/dashboard');
     } catch (error) {
-      setError(error.message || 'Failed to login');
-      toast.error(error.message || 'Failed to login');
+      // Set error message but keep form data intact
+      // Redux toolkit unwrap() returns the actual error message directly
+      const errorMessage = error || 'Failed to login';
+      setError(errorMessage);
+      
+      // Display specific error message with appropriate styling
+      toast.error(errorMessage, {
+        autoClose: 5000, // Keep toast visible for 5 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        position: "top-right", // Position at top right as requested
+        style: { fontWeight: 'bold' } // Make text bold
+      });
     } finally {
       setIsLoading(false);
     }
@@ -69,15 +86,24 @@ const Login = () => {
             <label htmlFor="password" className="login-label">
               Password
             </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              className="login-input"
-              required
-            />
+            <div className="login-password-wrapper">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                className="login-input"
+                required
+              />
+              <button
+                type="button"
+                className="login-password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
           </div>
 
           {error && <p className="login-error">{error}</p>}
@@ -104,4 +130,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;

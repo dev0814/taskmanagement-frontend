@@ -30,7 +30,8 @@ api.interceptors.response.use(
   },
   (error) => {
     // Handle 401 Unauthorized errors (token expired)
-    if (error.response && error.response.status === 401) {
+    // Only redirect if not already on the login page
+    if (error.response && error.response.status === 401 && !window.location.pathname.includes('/login')) {
       // Clear local storage and redirect to login
       localStorage.removeItem('token');
       window.location.href = '/login';
@@ -39,4 +40,4 @@ api.interceptors.response.use(
   }
 );
 
-export default api; 
+export default api;
